@@ -9,16 +9,18 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const onLeaveFeedback = (type) => {
-   if(type === 'good'){
-    setGood(prevGood => prevGood +1);
-   };
-   if(type === 'neutral'){
-    setNeutral(prevNeutral => prevNeutral + 1);
-   };
-   if(type === 'bad'){
-    setBad(prevBad => prevBad + 1);
-   };   
+  const onLeaveFeedback = type => {   
+    
+    switch (type) {
+      case 'good':
+        return setGood(prevGood => prevGood + 1);
+      case 'neutral':
+        return setNeutral(prevNeutral => prevNeutral + 1);
+      case 'bad':
+        return setBad(prevBad => prevBad + 1);
+      default:
+        return;
+   }  
   };
 
   const countTotalFeedback = () => {    
