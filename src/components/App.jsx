@@ -9,6 +9,23 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  // =========================================
+  // Варіант 2
+  // const [feedbacks, setFeedbacks] = useState({
+  //   good: 0,
+  //   neutral: 0,
+  //   bad: 0,
+  // }); 
+
+  // const onLeave = type => {
+  //   setFeedbacks(prevState => ({
+  //     ...prevState, [type]: prevState[type] + 1
+  //   })
+  //   );
+  // };
+  // const { good, neutral, bad } = feedbacks;
+  // ==========================================
+  
   const onLeaveFeedback = type => {   
     
     switch (type) {
@@ -21,7 +38,7 @@ export const App = () => {
       default:
         return;
    }  
-  };
+  };   
 
   const countTotalFeedback = () => {    
       return good + neutral + bad;
@@ -32,7 +49,7 @@ export const App = () => {
       return (total === 0 ? 0 :(good / total) * 100);           
   };
 
-  const options = ["good", "neutral", "bad"];
+  const options = ["good", "neutral", "bad"];  
 
   return (
     <>
